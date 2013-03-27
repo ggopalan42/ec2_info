@@ -1,0 +1,39 @@
+Terminating Instance: i-700f5b3a 
+.Terminated
+Launching & logging for t1.micro type at sa-east-1a
+EC2Connection:ec2.sa-east-1.amazonaws.com
+Traceback (most recent call last):
+  File "./EC2_info.py", line 198, in <module>
+    instance_type=inst_type)
+  File "/home/ggopalan/Cloud/AWS/EC2_Info/ec2_launch_instance.py", line 106, in launch_instance
+    group = ec2.get_all_security_groups(groupnames=[group_name])[0]
+  File "/usr/local/lib/python2.7/dist-packages/boto/ec2/connection.py", line 1810, in get_all_security_groups
+    [('item', SecurityGroup)], verb='POST')
+  File "/usr/local/lib/python2.7/dist-packages/boto/connection.py", line 862, in get_list
+    raise self.ResponseError(response.status, response.reason, body)
+boto.exception.EC2ResponseError: EC2ResponseError: 400 Bad Request
+<?xml version="1.0" encoding="UTF-8"?>
+<Response><Errors><Error><Code>InvalidParameterValue</Code><Message>Invalid value 'lakitufirstserver-security-group' for groupName. You may not reference Amazon VPC security groups by name. Please use the corresponding id for this operation.</Message></Error></Errors><RequestID>c1f81664-abfb-4070-b331-94b5a58954c4</RequestID></Response>
+ggopalan:~/Cloud/AWS/EC2_Info$ 
+
+
+
+
+
+Launching & logging for t1.micro type at us-east-1c
+EC2Connection:ec2.us-east-1.amazonaws.com
+Security Group: lakitufirstserver-security-group already authorized
+Traceback (most recent call last):
+  File "./EC2_info.py", line 198, in <module>
+    instance_type=inst_type)
+  File "/home/ggopalan/Cloud/AWS/EC2_Info/ec2_launch_instance.py", line 136, in launch_instance
+    user_data=user_data)
+  File "/usr/local/lib/python2.7/dist-packages/boto/ec2/connection.py", line 626, in run_instances
+    return self.get_object('RunInstances', params, Reservation, verb='POST')
+  File "/usr/local/lib/python2.7/dist-packages/boto/connection.py", line 882, in get_object
+    raise self.ResponseError(response.status, response.reason, body)
+boto.exception.EC2ResponseError: EC2ResponseError: 400 Bad Request
+<?xml version="1.0" encoding="UTF-8"?>
+<Response><Errors><Error><Code>Unsupported</Code><Message>The requested Availability Zone is currently constrained and we are no longer accepting new customer requests for t1/m1/c1/m2/m3 instance types. Please retry your request by not specifying an Availability Zone or choosing us-east-1b, us-east-1a, us-east-1d.</Message></Error></Errors><RequestID>a7f1dc5f-3c47-4187-9702-2ba17dbd9d5b</RequestID></Response>
+ggopalan:~/Cloud/AWS/EC2_Info$ 
+
